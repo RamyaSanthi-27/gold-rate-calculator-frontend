@@ -63,7 +63,7 @@ export default function Register() {
       progress: undefined,
       theme: "colored",
     });
-    navigate("/login");
+    navigate("/");
   }
   const formik = useFormik({
     initialValues: {

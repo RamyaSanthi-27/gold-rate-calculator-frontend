@@ -13,7 +13,7 @@ export default function VerifyRandomString() {
     async function verifyRandomString() {
       try {
         const response = await axios.get(
-          `http://localhost:5005/api/user/verifyRandomString/${randomString}`
+          `https://gold-rate-calculator-backend.onrender.com/api/user/verifyRandomString/${randomString}`
         );
 
         if (response.data.message === "Random String Verified") {
