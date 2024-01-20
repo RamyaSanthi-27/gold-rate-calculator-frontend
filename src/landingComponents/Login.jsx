@@ -25,14 +25,15 @@ export default function Login() {
 
     try {
       const response = await axios.post(
-        `https://gold-rate-calculator-backend.onrender.com/api/user/login`,
+        `/api/login`,
         values
       );
 
       setLoading(false);
       const data = response.data;
+      // console.log(data)
 
-      localStorage.setItem("Auth Token", `${data?.authToken}`);
+      localStorage.setItem("Auth Token", `${data?.token}`);
       localStorage.setItem("userName", `${data?.userName}`);
       toast.success("Welcome To Home Page", {
         position: "top-right",

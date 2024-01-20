@@ -9,10 +9,12 @@ import "react-toastify/dist/ReactToastify.css";
 import { togglePasswordVisibility } from "../Utils/Utils";
 
 export default function ResetPassword() {
+  const params = useParams();
+
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const { randomString } = useParams(); // Get the random string from the URL
+   // Get the random string from the URL
 
   // Define a validation schema for the form
   const validation = yup.object({
@@ -26,7 +28,7 @@ export default function ResetPassword() {
     try {
       // Replace ":randomString" with the extracted random string
       const response = await axios.post(
-        `https://gold-rate-calculator-backend.onrender.com/api/user/resetPassword/${randomString}`,
+        `/api/reset-password/${params.token}`,
         values
       );
       console.log("response", response);

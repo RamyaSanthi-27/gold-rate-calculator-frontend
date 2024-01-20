@@ -26,11 +26,11 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/forgotPassword" element={<ForgotPassword />} />
         <Route
-          path="/verifyRandomString/:randomString"
+          path="/verifyRandomString/:token"
           element={<VerifyRandomString />}
         />
         <Route
-          path="/resetPassword/:randomString"
+          path="/resetPassword/:token"
           element={<ResetPassword />}
         />
          <Route path="/header" element={<Header />} />

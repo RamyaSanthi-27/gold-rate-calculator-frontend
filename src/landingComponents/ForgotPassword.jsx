@@ -23,7 +23,7 @@ export default function ForgotPassword() {
     setLoading(true);
     try {
       const response = await axios.post(
-        "https://gold-rate-calculator-backend.onrender.com/api/user/ForgotPassword/",
+        "/api/forgot-password/",
         values
       );
 
