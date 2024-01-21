@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 
-const url = "https://gold-rate-calculator-backend.onrender.com";
+const url = "https://goldrate-calculator-687v.onrender.com";
 
 const UNIT = [
   { value: 'gram', label: 'gram' },
@@ -32,36 +32,38 @@ export default function Home() {
   const [totalAmount, setTotalAmount] = useState(0);
 
   const handleCalculate = async () => {
-    const res = await fetch(`${url}/gold_rate/ind_gold_rate`, {
-      method: 'GET'
-    });
-    const data = await res.json();
-    const price = data.price;
-
-    let calculatedAmount = 0;
-    if (unit === 'gram') {
-      if (carrat === '24k') {
-        calculatedAmount = quantity * price;
-      } else if (carrat === '22k') {
-        calculatedAmount = quantity * (price - 443.15);
-      } else if (carrat === '18k') {
-        calculatedAmount = quantity * (price - 886.3);
-      }
-    } else if (unit === 'pavan') {
-      if (carrat === '24k') {
-        calculatedAmount = quantity * 8 * price;
-      } else if (carrat === '22k') {
-        calculatedAmount = quantity * 8 * (price - 443.15);
-      } else if (carrat === '18k') {
-        calculatedAmount = quantity * 8 * (price - 886.3);
-      }
+    try {
+     const res = await axios.get(`${url}/api/getInr`)
+   //  console.log(res)
+     const price = res.data.price.price;
+ 
+     let calculatedAmount = 0;
+     if (unit === 'gram') {
+       if (carrat === '24k') {
+         calculatedAmount = quantity * price;
+       } else if (carrat === '22k') {
+         calculatedAmount = quantity * (price - 443.15);
+       } else if (carrat === '18k') {
+         calculatedAmount = quantity * (price - 886.3);
+       }
+     } else if (unit === 'pavan') {
+       if (carrat === '24k') {
+         calculatedAmount = quantity * 8 * price;
+       } else if (carrat === '22k') {
+         calculatedAmount = quantity * 8 * (price - 443.15);
+       } else if (carrat === '18k') {
+         calculatedAmount = quantity * 8 * (price - 886.3);
+       }
+     }
+ 
+     const conversionRate = currencies.find(curr => curr.value === currency)?.conversionRate || 1;
+     const convertedAmount = calculatedAmount / conversionRate;
+ 
+     setTotalAmount(convertedAmount);
+    } catch (error) {
+     console.log(error)
     }
-
-    const conversionRate = currencies.find(curr => curr.value === currency)?.conversionRate || 1;
-    const convertedAmount = calculatedAmount / conversionRate;
-
-    setTotalAmount(convertedAmount);
-  };
+   };
 
   const handleDownload = () => {
     const content = pdfRef.current;
