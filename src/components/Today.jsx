@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Header from "./Header";
+
 
 const GoldPriceToday = () => {
   const [selectedKarat, setSelectedKarat] = useState("24");
@@ -43,7 +43,9 @@ const GoldPriceToday = () => {
   }, [selectedKarat, selectedWeight, selectedCurrency]);
 
   return (
-    <div className="container p-0" style={{ height: "auto" }}>
+    <div className="bg-color">
+
+<div className="container p-0" style={{ height: "auto" }}>
       <div
         className="my-3 bg-body rounded shadow-sm block"
         style={{ color: "#263c4e" }}
@@ -368,7 +370,9 @@ const GoldPriceToday = () => {
       </table>
     </div>
       </div>
-    
+
+
+    </div>    
   );
 };
 

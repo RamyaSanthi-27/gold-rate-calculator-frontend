@@ -28,7 +28,7 @@ export default function ResetPassword() {
     try {
       // Replace ":randomString" with the extracted random string
       const response = await axios.post(
-        `/api/resetpassword/${params.token}`,
+        `/api/reset-password/${params.token}`,
         values
       );
       console.log("response", response);
@@ -45,7 +45,7 @@ export default function ResetPassword() {
       });
 
       // You can use navigate here if needed
-      navigate("/login");
+      navigate("/");
     } catch (err) {
       setLoading(false);
       setError("Random String is not valid");
