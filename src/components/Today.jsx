@@ -43,7 +43,10 @@ const GoldPriceToday = () => {
   }, [selectedKarat, selectedWeight, selectedCurrency]);
 
   return (
-    <div className="container">
+    <div
+      className=" container my-3 bg-white rounded shadow-sm p-3"
+      style={{ height: "auto !important" }}
+    >
 
 <div className="container p-0" style={{ height: "auto" }}>
       <div
