@@ -95,7 +95,7 @@ const Header = () => {
         </div>
       </header>
       <div className="container d-flex flex-warp justify-content-center pt-2 mb-2">
-      <img src="./public/image/Goldback.webp"  alt="Gold"/>
+      <img src="../public/image/Goldback.webp"  alt="Gold"/>
       </div>
     </>
   );
