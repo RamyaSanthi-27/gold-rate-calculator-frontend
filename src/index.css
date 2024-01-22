@@ -119,11 +119,14 @@ body {
 /* All screen bg */
 .bg-color {
   background: radial-gradient(#f8f7da, #8a6e34);
-
+  background-image: url('../public/image/Goldlog.webp');
   background-size: 300%;
   animation-duration: 10s;
   animation-iteration-count: infinite;
   animation-name: menugradientanimation;
+  background-repeat: no-repeat;
+  /* background-size: cover; */
+  background-position: center;
 }
 @keyframes menugradientanimation {
   0% {

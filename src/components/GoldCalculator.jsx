@@ -81,9 +81,9 @@ export default function Home() {
   };
   
   return (
-    <div style={{ backgroundColor: "#8B7500", minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", padding: "20px" }}>
+    <div className="bg-color" style={{  minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", padding: "20px" }}>
       <h1 style={{ color: "#FFD700", marginBottom: "20px" }}>Gold Rate Calculator</h1>
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: "#FFD700", padding: "20px", borderRadius: "10px" }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: "white", padding: "20px", borderRadius: "10px" }}>
         <TextField
           id="outlined-basic"
           type='number'

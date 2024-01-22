@@ -71,7 +71,7 @@ export default function VerifyRandomString() {
   };
 
   return (
-    <div className="bg-color" style={{ backgroundImage: `url(./image/Goldlog.webp)` }}>
+    <div className="bg-color" >
     <div className="container min-vh-100 d-flex align-items-center justify-content-center py-5 py-md-0">
       <div className="content row gx-0">
         <div className="col-md-5">
