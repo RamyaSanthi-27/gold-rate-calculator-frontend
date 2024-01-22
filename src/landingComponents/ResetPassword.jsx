@@ -78,12 +78,13 @@ export default function ResetPassword() {
   }
 
   return (
-    <>
+    
      <div className="bg-color" >
       <div className="container min-vh-100 d-flex align-items-center justify-content-center py-5 py-md-0">
         <div className="content row gx-0">
           <div className="col-md-5">
-            <div className="image-container text-white h-100 d-flex align-items-center justify-content-center flex-column p-5 text-center">
+            <div className="image-container text-white h-100 d-flex align-items-center justify-content-center flex-column p-5 text-center"
+             style={{ backgroundImage: `url(./image/Gold.jpeg)` }}>
               <h2 className="mb-3 fw-bold">Need An Account ?</h2>
               <p>Register Here</p>
               <Link to="/register">
@@ -152,6 +153,6 @@ export default function ResetPassword() {
         </div>
       </div>
       </div>
-    </>
+    
   );
 }
