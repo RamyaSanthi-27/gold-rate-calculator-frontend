@@ -54,7 +54,18 @@ export default function Register() {
         });
       });
     setLoading(false);
-    toast.success("Register Successfully", {
+    toast.success("Register Successfully ", {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+
+    toast.success("Activate link sent to your mail", {
       position: "top-right",
       autoClose: 1500,
       hideProgressBar: false,

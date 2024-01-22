@@ -4,6 +4,7 @@ import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import axios from "axios";
+import { Oval } from "react-loader-spinner";
 
 const url = "https://goldrate-calculator-687v.onrender.com";
 
@@ -31,9 +32,11 @@ export default function Home() {
   const [carrat, setCarrat] = useState('24k');
   const [currency, setCurrency] = useState('₹');
   const [totalAmount, setTotalAmount] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   const handleCalculate = async () => {
     try {
+      setLoading(true);
      const res = await axios.get(`${url}/api/getInr`)
    //  console.log(res)
      const price = res.data.price.price;
@@ -61,10 +64,13 @@ export default function Home() {
      const convertedAmount = calculatedAmount / conversionRate;
  
      setTotalAmount(convertedAmount);
+     setLoading(false);
     } catch (error) {
+      setLoading(false);
      console.log(error)
     }
    };
+   
 
   const handleDownload = () => {
     const content = pdfRef.current;
@@ -149,7 +155,25 @@ export default function Home() {
             </option>
           ))}
         </TextField>
-        <Button style={{ backgroundColor: "#8B7500", color: "#FFFFFF", marginBottom: "15px", width: "250px" }} onClick={handleCalculate}>Calculate</Button>
+        <Button style={{ backgroundColor: "#8B7500", color: "#FFFFFF", marginBottom: "15px", width: "250px" }} 
+        onClick={handleCalculate} > {loading ? (
+          <div className="d-flex justify-content-center">
+            <Oval
+              height={30}
+              width={30}
+              color="#fff"
+              wrapperStyle={{}}
+              wrapperClass=""
+              visible={true}
+              ariaLabel="oval-loading"
+              secondaryColor="#86b7fe"
+              strokeWidth={2}
+              strokeWidthSecondary={2}
+            />
+          </div>
+        ) : (
+          "Calculate"
+        )}</Button>
         {totalAmount ? (
           <div ref={pdfRef} id="tata">
             <h4 style={{ color: "#FFD700", marginBottom: "15px" }}>{carrat} Gold Price Today</h4>
