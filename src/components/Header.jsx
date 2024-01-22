@@ -94,6 +94,7 @@ const Header = () => {
           </nav>
         </div>
       </header>
+      <img src="../public/image/Goldlog.webp"/>
     </>
   );
 };
