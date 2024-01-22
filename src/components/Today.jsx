@@ -43,7 +43,7 @@ const GoldPriceToday = () => {
   }, [selectedKarat, selectedWeight, selectedCurrency]);
 
   return (
-    <div className="bg-color">
+    <div className="container">
 
 <div className="container p-0" style={{ height: "auto" }}>
       <div
@@ -219,10 +219,12 @@ const GoldPriceToday = () => {
             </table>
           </div>
         </div>
-        <p className="fs-5 text-justify">
+      <div>
+      <p className="fs-5 text-justify">
       The current spot price of gold per ounce is <strong>$2,029.51</strong>. The price of gold per gram is <strong>$65.25</strong>.
       When the market opened today, the price of gold was $2,021.46. The highest price that gold reached today was $2,029.68, and the lowest price was $2,021.46.
     </p>
+      </div>
 
     <div className="table-responsive">
       <table className="table table-striped table-sm table-hover fs-14 min-500">
