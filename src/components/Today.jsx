@@ -44,11 +44,9 @@ const GoldPriceToday = () => {
 
   return (
     <div
-      className=" bg-color container my-3 bg-white rounded shadow-sm p-3"
-      style={{ height: "auto !important" }}
-    >
+      className=" container my-3 bg-white rounded shadow-sm p-3"
+      style={{ height: "auto !important" }}  >
 
-<div className="container p-0" style={{ height: "auto" }}>
       <div
         className="my-3 bg-body rounded shadow-sm block"
         style={{ color: "#263c4e" }}
@@ -377,7 +375,7 @@ const GoldPriceToday = () => {
       </div>
 
 
-    </div>    
+       
   );
 };
 
