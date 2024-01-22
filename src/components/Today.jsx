@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Header from "./Header";
 
 const GoldPriceToday = () => {
   const [selectedKarat, setSelectedKarat] = useState("24");
@@ -7,6 +8,7 @@ const GoldPriceToday = () => {
   const [currentDate, setCurrentDate] = useState("");
 
   const calculatePrice = (karat, weight, currency) => {
+    
     const basePrice = 50; // Example base price
     return (
       basePrice * parseFloat(karat) * parseFloat(weight) * parseFloat(currency)

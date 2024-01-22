@@ -30,11 +30,11 @@ const Navbar = () => {
   return (
     <nav className="navbar  navbar-expand-lg navbar-light nav-bg">
       <div className="container">
-        <Link to="/goldcalculator" className="navbar-brand">
+       
         <img src="./image/GoldPrice.jpeg"  height="70"
             alt="Gold price today"
             className="mx-1"/>
-        </Link>
+       
         
         <ul className="navbar-nav ms-auto">
           {" "}

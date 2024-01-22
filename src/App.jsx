@@ -25,10 +25,6 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgotPassword" element={<ForgotPassword />} />
-        {/* <Route
-          path="/verifyRandomString/:token"
-          element={<VerifyRandomString />}
-        /> */}
         <Route
           path="/resetPassword/:token"
           element={<ResetPassword />}
