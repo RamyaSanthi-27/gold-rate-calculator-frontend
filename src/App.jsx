@@ -6,7 +6,7 @@ import Login from "./landingComponents/Login";
 //import Home1 from "./Components/Home1";
 import ForgotPassword from "./landingComponents/ForgotPassword";
 import ResetPassword from "./landingComponents/ResetPassword";
-import VerifyRandomString from "./landingComponents/VerifyRandomString";
+//import VerifyRandomString from "./landingComponents/VerifyRandomString";
 import Navbar from "./landingComponents/Navbar";
 import Header from "./components/Header";
 
@@ -25,10 +25,10 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgotPassword" element={<ForgotPassword />} />
-        <Route
+        {/* <Route
           path="/verifyRandomString/:token"
           element={<VerifyRandomString />}
-        />
+        /> */}
         <Route
           path="/resetPassword/:token"
           element={<ResetPassword />}
