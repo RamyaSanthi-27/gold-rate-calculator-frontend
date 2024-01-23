@@ -26,11 +26,9 @@ export default function ResetPassword() {
     console.log("Working sendUpdatedData");
     setLoading(true);
     try {
-      // Replace ":randomString" with the extracted random string
-      const response = await axios.post(
-        `/api/reset-password/${params.token}`,
-        values
-      );
+      // Replace ":randomString" with the extracted random 
+      const response = await axios.post(`/api/reset-password/${params.token}`, values);      
+
       console.log("response", response);
       setLoading(false);
       toast.success("Password Updated Successfully", {
