@@ -99,7 +99,7 @@ export default function Register() {
           <div className="content row gx-0">
             <div className="col-md-5">
               <div className="image-container text-white h-100 d-flex align-items-center justify-content-center flex-column p-5 text-center"
-              style={{ backgroundImage: `url(../public/image/Gold.jpeg)` }}>
+              style={{ backgroundImage: `url(./image/Gold.jpeg)` }}>
                 <h2 className="mb-3 fw-bold">Already Registered !</h2>
                 <p>Click Login</p>
                 <Link to={"/"}>
