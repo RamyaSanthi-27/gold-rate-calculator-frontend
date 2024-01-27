@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useFormik } from "formik";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Oval } from "react-loader-spinner";
 import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
@@ -92,7 +92,7 @@ export default function ForgotPassword() {
           </div>
           <div className="col-md-7 bg-light">
             <div className="text-center p-5">
-              <i class="fa-solid fa-lock text-main" style={{fontSize:"50px"}}></i>
+              <i className="fa-solid fa-lock text-main" style={{fontSize:"50px"}}></i>
 
               <h4 className="fw-bolder fs-5 my-3" style={{color:"#3b5998"}}>
                 Trouble logging in?

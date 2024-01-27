@@ -96,7 +96,8 @@ export default function Register() {
         <div className="container min-vh-100 d-flex align-items-center justify-content-center py-5 py-md-0">
           <div className="content row gx-0">
             <div className="col-md-5">
-              <div className="bg-login text-white h-100 d-flex align-items-center justify-content-center flex-column p-5 text-center">
+              <div className="image-container text-white h-100 d-flex align-items-center justify-content-center flex-column p-5 text-center"
+              style={{ backgroundImage: `url(./public/image/Gold.jpeg)` }}>
                 <h2 className="mb-3 fw-bold">Already Registered !</h2>
                 <p>Click Login</p>
                 <Link to={"/"}>
@@ -109,7 +110,7 @@ export default function Register() {
             <div className="col-md-7 bg-light">
               <div className="text-center p-5">
                 <img
-                  src="./image/GoldPrice.jpeg"
+                  src="./public/image/GoldPrice.jpeg"
                   height="70"
                   alt="Gold price today"
                   className="mx-1"
