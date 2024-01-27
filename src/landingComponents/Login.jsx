@@ -87,7 +87,7 @@ export default function Login() {
             <div className="col-md-5">
               <div
                 className="image-container text-white h-100 d-flex align-items-center justify-content-center flex-column p-5 text-center"
-                style={{ backgroundImage: `url(./image/Gold.jpeg)` }}
+                style={{ backgroundImage: `url(../public/image/Gold.jpeg)` }}
               >
                 <h2 className="mb-3 dark-color fw-bold">Don't have an Account?</h2>
                 <p>Register Here</p>

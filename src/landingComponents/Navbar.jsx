@@ -31,7 +31,7 @@ const Navbar = () => {
     <nav className="navbar  navbar-expand-lg navbar-light nav-bg">
       <div className="container">
        
-        <img src="../image/GoldPrice.jpeg"  height="70"
+        <img src="../public/image/GoldPrice.jpeg"  height="70"
             alt="Gold price today"
             className="mx-1"/>
        
