@@ -1,7 +1,6 @@
-/* eslint-disable react/no-unescaped-entities */
 import axios from "axios";
 import { useFormik } from "formik";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Oval } from "react-loader-spinner";
 import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
@@ -100,7 +99,7 @@ export default function Login() {
             </div>
             <div className="col-md-7 bg-light">
               <div className="text-center p-5 light-bg">
-                <img src="../image/GoldPrice.jpeg" height="70" alt="Gold price today" className="mx-1" />
+                <img src="./image/GoldPrice.jpeg" height="70" alt="Gold price today" className="mx-1" />
                 <form onSubmit={formik.handleSubmit}>
                   {error ? <p className="text-danger ">{error}</p> : ""}
                   <input
