@@ -112,7 +112,7 @@ export default function Register() {
             <div className="col-md-7 bg-light">
               <div className="text-center p-5">
                 <img
-                  src="./public/image/GoldPrice.jpeg"
+                  src="./image/GoldPrice.jpeg"
                   height="70"
                   alt="Gold price today"
                   className="mx-1"
