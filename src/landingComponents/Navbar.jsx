@@ -1,4 +1,4 @@
-import React from "react";
+//import React from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -14,8 +14,8 @@ const Navbar = () => {
   const isAuthenticated = localStorage.getItem("Auth Token");
 
   // Get the first letter of the username to display as the avatar
-  const username = localStorage.getItem("userName");
-  const avatarLetter = username ? username[0].toUpperCase() : "";
+  //const username = localStorage.getItem("userName");
+  //const avatarLetter = username ? username[0].toUpperCase() : "";
 
   // Function to handle logout
   const handleLogout = () => {
@@ -31,7 +31,7 @@ const Navbar = () => {
     <nav className="navbar  navbar-expand-lg navbar-light nav-bg">
       <div className="container">
        
-        <img src="./image/GoldPrice.jpeg"  height="70"
+        <img src="../image/GoldPrice.jpeg"  height="70"
             alt="Gold price today"
             className="mx-1"/>
        
