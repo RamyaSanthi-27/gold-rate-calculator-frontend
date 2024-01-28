@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import axios from "axios";
 import { Oval } from "react-loader-spinner";
 
-const url = "https://goldrate-calculator-687v.onrender.com";
+// const url = "https://goldrate-calculator-687v.onrender.com";
 
 const UNIT = [
   { value: 'gram', label: 'gram' },
@@ -37,9 +37,10 @@ export default function Home() {
   const handleCalculate = async () => {
     try {
       setLoading(true);
-     const res = await axios.get(`${url}/api/getInr`)
-   //  console.log(res)
+     const res = await axios.get(`/api/getINR`);
+   console.log("The Response is" , res)
      const price = res.data.price.price;
+     console.log("The price is" , price)
  
      let calculatedAmount = 0;
      if (unit === 'gram') {

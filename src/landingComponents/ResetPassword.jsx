@@ -10,7 +10,7 @@ import { togglePasswordVisibility } from "../Utils/Utils";
 
 export default function ResetPassword() {
   const params = useParams();
-
+console.log(params)
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -22,15 +22,20 @@ export default function ResetPassword() {
   });
 
   // Function to send updated password data to the server
-  async function sendUpdatedData(values) {
-    console.log("Working sendUpdatedData");
-    setLoading(true);
-    try {
-      // Replace ":randomString" with the extracted random 
-      const response = await axios.post(`/api/reset-password/${params.token}`, values);      
+  
 
-      console.log("response", response);
-      setLoading(false);
+  // Initialize Formik
+  const formik = useFormik({
+    initialValues: {
+      password: "",
+    },
+    validationSchema: validation,
+    onSubmit: async(value)=>{
+      const response = await axios.post(`/api/reset-password/${params.token}`, value);
+      console.log(response)   
+      try {
+        formik.resetForm()
+        setLoading(false);
       toast.success("Password Updated Successfully", {
         position: "top-right",
         autoClose: 1500,
@@ -41,32 +46,23 @@ export default function ResetPassword() {
         progress: undefined,
         theme: "colored",
       });
+        
+      } catch (error) {
+        setLoading(false);
+        setError(error.message);
+        toast.error(error.message, {
+          position: "top-right",
+          autoClose: 1500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      }   
 
-      // You can use navigate here if needed
-      navigate("/");
-    } catch (err) {
-      setLoading(false);
-      setError("Random String is not valid");
-      toast.error("Random String is not valid", {
-        position: "top-right",
-        autoClose: 1500,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-      });
-    }
-  }
-
-  // Initialize Formik
-  const formik = useFormik({
-    initialValues: {
-      password: "",
     },
-    validationSchema: validation,
-    onSubmit: sendUpdatedData,
   });
 
   // Function to change background for the update password button

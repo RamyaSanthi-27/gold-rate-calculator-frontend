@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useFormik } from "formik";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Oval } from "react-loader-spinner";
 import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
@@ -29,20 +29,47 @@ export default function Register() {
   
     username: yup.string().required("Required"),
   });
-  async function sendData(values) {
-    setLoading(true);
-    let { data } = await axios
-      .post(
-        `/api/register`,
-        values
-      )
-      .then((response) => {
-        return response;
-      })
-      .catch((err) => {
+  const formik = useFormik({
+    initialValues: {
+      username: "",
+      email: "",
+      password: "",
+    },
+    validationSchema: validation,
+    onSubmit: async (values)=>{
+      console.log(values)
+      try {
+        const data = await axios.post("/api/register",values)
+       
+          formik.resetForm()
+          setLoading(false);
+          toast.success("Register Successfully ", {
+            position: "top-right",
+            autoClose: 1500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
+      
+          toast.success("Activate link sent to your mail", {
+            position: "top-right",
+            autoClose: 1500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
+          navigate("/");
+  
+      } catch (error) {
         setLoading(false);
-        setError(err.response.data.msg);
-        toast.error(err.response.data.msg, {
+        setError(error.message);
+        toast.error(error.message, {
           position: "top-right",
           autoClose: 1500,
           hideProgressBar: false,
@@ -52,39 +79,8 @@ export default function Register() {
           progress: undefined,
           theme: "colored",
         });
-      });
-    setLoading(false);
-    toast.success("Register Successfully ", {
-      position: "top-right",
-      autoClose: 1500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "colored",
-    });
-
-    toast.success("Activate link sent to your mail", {
-      position: "top-right",
-      autoClose: 1500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "colored",
-    });
-    navigate("/");
-  }
-  const formik = useFormik({
-    initialValues: {
-      username: "",
-      email: "",
-      password: "",
+      }
     },
-    validationSchema: validation,
-    onSubmit: sendData,
   });
   function changeBgRegister() {
     document.getElementById("changeR").classList.add("auth");
