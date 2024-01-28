@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 
+
 const GoldPriceToday = () => {
   const [selectedKarat, setSelectedKarat] = useState("24");
   const [selectedWeight, setSelectedWeight] = useState("31.1034768");
@@ -7,6 +8,7 @@ const GoldPriceToday = () => {
   const [currentDate, setCurrentDate] = useState("");
 
   const calculatePrice = (karat, weight, currency) => {
+    
     const basePrice = 50; // Example base price
     return (
       basePrice * parseFloat(karat) * parseFloat(weight) * parseFloat(currency)
@@ -35,19 +37,32 @@ const GoldPriceToday = () => {
     console.log(`Updated Price: ${updatedPrice}`);
   };
 
+  // Moved the function call to updatePrice inside useEffect to avoid unnecessary calls
   useEffect(() => {
     updatePrice();
   }, [selectedKarat, selectedWeight, selectedCurrency]);
 
   return (
-    <div className="container my-3 bg-white rounded shadow-sm p-3">
-      <div className="my-3 bg-body rounded shadow-sm block" style={{ color: "#263c4e" }}>
-        <h1 className="fs-3 m-0 text-start p-2">
-          <img src="https://pricegold.net/images/goldicon.svg" alt="" width="35" /> Gold price today
+    
+    <div
+      className=" container my-3 bg-white rounded shadow-sm p-3"
+      style={{ height: "auto !important" }}  >
+
+      <div
+        className="my-3 bg-body rounded shadow-sm block"
+        style={{ color: "#263c4e" }}
+      >
+        <h1 className="flex-grow-1 fs-3 m-0 text-start p-2">
+          <img
+            src="https://pricegold.net/images/goldicon.svg"
+            alt=""
+            width="35"
+          />{" "}
+          Gold price today
         </h1>
 
-        <div className="d-flex flex-wrap border-bottom">
-          <div className="col-md-4 col-xs-12 px-3 py-2">
+          <div className="d-flex flex-wrap border-bottom">
+          <div className="col-md-4 col-xs-12 px-5 shadow-sm py-2">
             <select
               name="goldkarat"
               id="goldkarat"
@@ -65,8 +80,8 @@ const GoldPriceToday = () => {
               <option value="10">10k</option>
               <option value="6">6k</option>
             </select>
-            </div>
-          <div className="col-md-4 col-xs-12 px-3 py-2">
+          </div>
+          <div className="col-md-4 col-xs-12 shadow-sm px-5 py-2">
             <select
               name="goldW"
               id="goldW"
@@ -82,8 +97,8 @@ const GoldPriceToday = () => {
               <option value="100">100Gram</option>
               <option value="1000">Kilo</option>
             </select>
-            </div>
-          <div className="col-md-4 col-xs-12 px-3 py-2">
+          </div>
+          <div className="col-md-4 col-xs-12 shadow-sm px-5 py-2">
             <select
               name="goldCur"
               id="goldCur"
@@ -99,13 +114,13 @@ const GoldPriceToday = () => {
               </option>
               {/* Add the rest of the options */}
             </select>
-            </div>
+          </div>
         </div>
 
-        <div className="row">
-          <div className="col-md-8 col-xs-12 px-3 py-2">
+          <div className="row">
+            <div className="col-md-8 col-xs-12 px-5 shadow-sm py-2">
               <div className="fs-70">
-                <strong className="exMoney" data-value="65.24793" id="livegold">
+                <strong className="exMoney " data-value="65.24793" id="livegold">
                   $2,029.44
                 </strong>
               </div>
@@ -113,9 +128,9 @@ const GoldPriceToday = () => {
               {currentDate}
                 <i className="text-danger fs-5 live">Live</i>
               </div>
-              </div>
-          <div className="col-md-4 col-xs-12 px-3 py-2 fs-5 fw-bold">
-              <div className="d-flex justify-content-between">
+            </div>
+            <div className="col-md-4 col-xs-12 px-5 py-2 fs-5 fw-bold">
+              <div className="d-flex justify-content-between shadow-sm">
                 <span>Change:</span>
                 <span className="text-green">
                   <svg width="15px" height="11.3px">
@@ -129,7 +144,7 @@ const GoldPriceToday = () => {
                   (0.4%)
                 </span>
               </div>
-              <div className="d-flex justify-content-center">
+              <div className="d-flex justify-content-between shadow-sm">
                 <span>Open:</span>
                 <span className="exMoney" data-value="64.99145">
                   $2,021.46
@@ -139,13 +154,13 @@ const GoldPriceToday = () => {
           </div>
 
           <div>
-            <div className="d-flex justify-content-center">
+            <div className="d-flex justify-content-center shadow-sm">
               <span>High:</span>
               <span className="exMoney" data-value="65.25557">
                 $2,029.68
               </span>
             </div>
-            <div className="d-flex justify-content-center">
+            <div className="d-flex justify-content-center shadow-sm">
               <span>Low:</span>
               <span className="exMoney" data-value="64.99145">
                 $2,021.46
@@ -213,7 +228,7 @@ const GoldPriceToday = () => {
     </p>
       </div>
 
-    <div className="table-responsive">
+    <div className="table-responsive ">
       <table className="table table-striped table-sm table-hover fs-14 min-500">
         <thead>
           <tr className="border-bottom border-2 border-warning">
